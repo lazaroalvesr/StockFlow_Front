@@ -83,7 +83,7 @@ export const ModalTaskId = ({ show, task, onClose, folders }: ModalTaskIdProps) 
         }
     };
     
-    const handleChangeSelect = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const handleChangeSelect = (e: React.ChangeEvent<any>) => {
         const { name, value, type, checked } = e.target;
         setEditData((prevTask) => ({
             ...prevTask,
