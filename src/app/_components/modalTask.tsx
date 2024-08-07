@@ -45,7 +45,7 @@ export const ModalTask = ({ show, onClose, onSubmit, folders }: ModalTaskProps) 
         onClose();
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const handleChange = (e: React.ChangeEvent<any>) => {
         const { name, value, type, checked } = e.target;
         setTask((prevTask) => ({
             ...prevTask,
