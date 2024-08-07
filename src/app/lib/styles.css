@@ -1,0 +1,72 @@
+.tiptap {
+    :first-child {
+        margin-top: 0;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    /* List styles */
+    ul,
+    ol {
+        padding: 0 1rem;
+        margin: 1.25rem 1rem 1.25rem 0.4rem;
+
+        li p {
+            margin-top: 0.25em;
+            margin-bottom: 0.25em;
+        }
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+    }
+
+    .control-group {
+        margin-bottom: 1rem;
+    }
+
+    .button-group button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ddd;
+        background-color: #f5f5f5;
+        cursor: pointer;
+    }
+
+    .button-group button.is-active {
+        background-color: #ddd;
+        border-color: #ccc;
+    }
+}
+
+.editor-content {
+    border: 1px solid #E5E7EB;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    height: 8rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    outline: none;
+    overflow-y: auto;
+}
+
+.editor-content h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.editor-content ul {
+    list-style-type: disc;
+    margin-left: 2em;
+}
+
+.editor-content li {
+    margin-bottom: 0.5em;
+}
+
+.is-active {
+    background-color: #f0f0f0;
+}
