@@ -60,7 +60,7 @@ export default function Dashboard() {
                             )}
                         </div>
                     </div>
-                    <div className="lg:ml-8 m-5 flex gap-4 flex-col md:w-[750px] mt-4 lg:mt-2 l">
+                    <div className="lg:ml-8 m-5 flex gap-4 flex-col md:w-[750px] lg:w-[1100px] mt-4 lg:mt-2 l">
                         <div className="flex justify-between items-center">
                             <h2 className="lg:text-2xl text-xl">Itens do Estoque</h2>
                             <Link href="/dashboard/itens_estoque" className=" ml-5 text-nowrap h-9 text-sm px-2 items-center justify-center flex  bg-gray-200 text-black rounded-md">

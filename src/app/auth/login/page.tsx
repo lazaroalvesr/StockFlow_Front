@@ -73,7 +73,7 @@ export default function LoginPage() {
 
     return (
         <section>
-            <div className="m-auto lg:w-[780px] w-[360px] md:w-[780px] flex mt-32">
+            <div className="m-auto lg:w-[780px] w-[320px] md:w-[780px] flex mt-32">
                 <div className="bg-white shadow-md rounded-s-md border border-gray-100 lg:flex hidden md:flex">
                     <Image
                         src="/img/ImgLogin.png"

@@ -72,7 +72,7 @@ export default function RegisterPage() {
 
     return (
         <section>
-            <div className="m-auto lg:w-[780px] w-[360px] md:w-[780px] flex mt-32">
+            <div className="m-auto lg:w-[780px] w-[320px] md:w-[780px] flex mt-32">
                 <div className="bg-white shadow-md border border-gray-100 rounded-s-md lg:flex hidden md:flex">
                     <Image
                         src="/img/ImgLogin.png"
