@@ -68,20 +68,22 @@ export default function GerenciamentoEstoqueID({ params: { id } }: Gerenciamento
             <div className="border-b">
                 <h1 className="m-4 text-lg py-1 font-bold lg:text-start text-end">{task.nome}</h1>
             </div>
-            <div className="gap-4 flex flex-col m-4 lg:h-[550px] h-[480px]">
-                {task.Tarefa.length > 0 ? (
-                    task.Tarefa.map((item) => (
-                        <LiTask
-                            key={item.id}
-                            nome={item.nome}
-                            item={item}
-                            onclick={() => handleTaskClick(item)}
-                            handleDelete={() => HandleDelete(item.id)}
-                        />
-                    ))
-                ) : (
-                    <p>Nenhum item na pasta</p>
-                )}
+            <div className=" lg:h-[550px] mb-4 h-[480px] overflow-y-scroll">
+                <div className="gap-4 flex flex-col m-4">
+                    {task.Tarefa.length > 0 ? (
+                        task.Tarefa.map((item) => (
+                            <LiTask
+                                key={item.id}
+                                nome={item.nome}
+                                item={item}
+                                onclick={() => handleTaskClick(item)}
+                                handleDelete={() => HandleDelete(item.id)}
+                            />
+                        ))
+                    ) : (
+                        <p>Nenhum item na pasta</p>
+                    )}
+                </div>
             </div>
             {selectedTask && (
                 <ModalTaskId show={isViewModalOpen} task={selectedTask} onClose={() => setIsViewModalOpen(false)} />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FolderProps } from "@/app/lib/interface";
 import Tiptap from "../lib/tiptap";
 
@@ -19,6 +19,20 @@ export const ModalTask = ({ show, onClose, onSubmit, folders }: ModalTaskProps) 
         dataFabricacao: "",
     });
     const [errors, setErrors] = useState<{ dataValidade?: string }>({});
+
+    useEffect(() => {
+        if (show) {
+            setTask({
+                nome: "",
+                text: "",
+                pastaId: "",
+                perecivel: false,
+                dataValidade: "",
+                dataFabricacao: "",
+            });
+            setErrors({});
+        }
+    }, [show]);
 
     if (!show) return null;
 
@@ -53,6 +67,13 @@ export const ModalTask = ({ show, onClose, onSubmit, folders }: ModalTaskProps) 
         }));
     };
 
+    const handleTextChange = (content: string) => {
+        setTask((prevTask) => ({
+            ...prevTask,
+            text: content
+        }));
+    };
+
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50">
             <div className="bg-white p-6 lg:w-[500px] w-[350px] rounded-md shadow-xl border border-border">
@@ -68,7 +89,7 @@ export const ModalTask = ({ show, onClose, onSubmit, folders }: ModalTaskProps) 
                         required
                     />
                     <label>
-                        <Tiptap onChange={(content) => setTask({ ...task, text: content })} />
+                        <Tiptap onChange={handleTextChange} />
                     </label>
                     <select
                         name="pastaId"

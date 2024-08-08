@@ -122,7 +122,7 @@ export default function ItensEstoque() {
                 </button>
             </div>
             <div className="flex  m-auto items-center justify-center w-full ml-2 lg:ml-10 lg:w-[1100px]">
-                <div className="mt-6 flex  flex-col items-center m-auto lg:w-full md:w-full gap-4 overflow-y-auto lg:h-[550px] h-[480px] pr-4">
+                <div className="mt-6 flex  flex-col items-center m-auto lg:w-full md:w-full gap-4 overflow-y-auto lg:h-[550px] mb-2 h-[480px] pr-4">
                     {tasks.length ? '' : <p>Você não tem nenhum item criado</p>}
                     {tasks.map((item) => (
                         <LiTask
