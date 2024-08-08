@@ -72,7 +72,7 @@ export default function RegisterPage() {
 
     return (
         <section>
-            <div className="m-auto lg:w-[780px] w-[320px] md:w-[780px] flex mt-32">
+            <div className="m-auto lg:w-[780px] md:w-[780px]  w-[340px] flex mt-32">
                 <div className="bg-white shadow-md border border-gray-100 rounded-s-md lg:flex hidden md:flex">
                     <Image
                         src="/img/ImgLogin.png"
@@ -81,7 +81,7 @@ export default function RegisterPage() {
                         height={90}
                     />
                 </div>
-                <form className="flex bg-white shadow-md border border-gray-100 w-[400px] pb-20 rounded-e-md" onSubmit={handleSubmit(onSubmit)}>
+                <form className="flex bg-white shadow-md border border-gray-100 lg:w-[400px] w-full pb-20 rounded-e-md" onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex flex-col w-full">
                         <div className="text-center">
                             <h2 className="mt-4 text-black text-xl">Criar Conta</h2>
