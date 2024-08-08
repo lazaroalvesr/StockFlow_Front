@@ -68,7 +68,7 @@ export default function GerenciamentoEstoqueID({ params: { id } }: Gerenciamento
             <div className="border-b">
                 <h1 className="m-4 text-lg py-1 font-bold lg:text-start text-end">{task.nome}</h1>
             </div>
-            <div className="gap-4 flex flex-col m-4 justify-center items-center">
+            <div className="gap-4 flex flex-col m-4 justify-center items-center lg:h-[550px] h-[480px]">
                 {task.Tarefa.length > 0 ? (
                     task.Tarefa.map((item) => (
                         <LiTask
