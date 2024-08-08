@@ -93,7 +93,7 @@ export const ModalTaskId = ({ show, task, onClose, folders }: ModalTaskIdProps) 
 
 
     return (
-        <article className="fixed inset-0 flex items-center justify-center">
+        <article className="bg-black fixed flex items-center justify-center inset-0 bg-opacity-15 backdrop-blur-sm">
             <div className="bg-white p-6 lg:w-[450px] w-[350px] rounded-md shadow-xl border border-border">
                 <h1 className="text-lg mb-3">Vizualize e Edite</h1>
                 {isEditing ? (

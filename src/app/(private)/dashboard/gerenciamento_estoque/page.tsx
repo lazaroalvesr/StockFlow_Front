@@ -102,6 +102,7 @@ export default function GerenciamentoEstoque() {
                     </div>
                 ))}
             </div>
+            <Modal show={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handleCreateFolder} />
         </section>
     );
 }
