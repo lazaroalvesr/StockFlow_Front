@@ -22,53 +22,41 @@ export default function Dashboard() {
     }, [])
 
     return (
-        <article className="lg:w-[1140px]  flex flex-col">
-            <div className="border-b border-border">
-                <div className="m-3 lg:text-start text-end pr-7 lg:pr-0 ">
-                    <p className="font-bold ml-7 mb-1">Olá, {isClient ? user?.nome : ""}</p>
-                    <span className="text-gray-500 ml-7 "> {dayName} {day} {monthName} de {fullYear}</span>
-                </div>
+        <section className="lg:h-[650px] h-max pb-4 z-auto m-auto">
+            <div className="border-b border-border py-4 lg:text-start text-end pr-5 lg:pr-0">
+                <h1 className="font-bold ml-7 mb-1">Olá, {isClient ? user?.nome : ""}</h1>
+                <p className="text-gray-500 ml-7 "> {dayName} {day} {monthName} de {fullYear}</p>
             </div>
             {loading ? (
                 <LoadingDashboard />
             ) : (
-                <>
-                    <div className="lg:m-4 m-2 mt-4 flex flex-col ">
-                        <div className="flex lg:items-center justify-between w-80 md:w-[750px] lg:w-full">
-                            <h2 className="lg:text-2xl ml-5 text-xl">Gerenciamento de Estoque</h2>
-                            <Link href="/dashboard/gerenciamento_estoque" className=" ml-5 text-nowrap h-9 text-sm px-2 items-center justify-center flex  bg-gray-200 text-black rounded-md">
+                <div className="ml-7 mt-4 lg:w-[1100px]">
+                    <div>
+                        <div className="flex justify-between">
+                            <h1 className="text-xl font-bold">Pastas</h1>
+                            <Link href="/dashboard/gerenciamento_estoque" className="bg-gray-200 text-black px-4 rounded-md items-center justify-center flex mr-4 lg:mr-0">
                                 Ver Mais
                             </Link>
                         </div>
-                        <div className="lg:w-[1100px] w-80 md:w-[750px] flex gap-4 overflow-x-auto">
-                            {folders && folders.length > 0 ? (
-                                <div className="flex p-4 gap-4 items-center justify-center">
-                                    {folders.map((folder) => (
-                                        <Link key={folder.id} href={`/dashboard/gerenciamento_estoque/${folder.id}`}>
-                                            <div className="flex lg:w-40 lg:h-40 w-36 h-36 relative text-center items-center justify-center  border-border border rounded-2xl shadow-md cursor-pointer hover:scale-110 transition .3s ease-in">
-                                                <p>{folder.nome}</p>
-                                                <span className="absolute w-8 h-8 rounded-full border-2 bottom-1 right-2 bg-white flex items-center justify-center text-sm text-gray-700">
-                                                    {folder._count.Tarefa}
-                                                </span>
-                                            </div>
-
-                                        </Link>
-                                    ))}
-                                </div>
-                            ) : (
-                                <p className="m-4 text-gray-500">Nenhuma pasta encontrada.</p>
-                            )}
+                        <div className="lg:mt-0 mt-6 m-auto flex gap-2 lg:w-full lg:h-44 h-[270px] w-72 md:w-full overflow-hidden flex-wrap justify-center items-center">
+                            {folders?.slice(0, 8).map((item) => (
+                                <Link key={item.id} className="flex hover:scale-105 transition ease-in" href={`/dashboard/gerenciamento_estoque/${item.id}`}>
+                                    <div className="w-[130px] h-[130px] rounded-md text-center flex justify-center items-center m-auto bg-gray-200">
+                                        <p>{item.nome}</p>
+                                    </div>
+                                </Link>
+                            ))}
                         </div>
                     </div>
-                    <div className="lg:ml-8 m-5 flex gap-4 flex-col md:w-[750px] lg:w-[1100px] mt-4 lg:mt-2 l">
-                        <div className="flex justify-between items-center">
-                            <h2 className="lg:text-2xl text-xl">Itens do Estoque</h2>
-                            <Link href="/dashboard/itens_estoque" className=" ml-5 text-nowrap h-9 text-sm px-2 items-center justify-center flex  bg-gray-200 text-black rounded-md">
+                    <div className="mt-5 ">
+                        <div className="flex justify-between">
+                            <h1 className="text-xl font-bold">Itens do Estoque</h1>
+                            <Link href="/dashboard/itens_estoque" className="bg-gray-200 text-black px-4 rounded-md items-center justify-center flex mr-4 lg:mr-0">
                                 Ver Mais
                             </Link>
                         </div>
-                        <div className="lg:mr-16 w-80 lg:w-full md:w-[750px] lg:-mt-2">
-                            <ul className="flex flex-col gap-2 lg:h-[240px] h-[170px] md:h-[630px] overflow-hidden">
+                        <div className="mt-4 w-full ">
+                            <ul className="lg:h-[239px] h-[170px] gap-2 flex flex-col overflow-hidden mr-4">
                                 {tasks?.map((task) => (
                                     <LiItensDoEstoque
                                         id={task.id}
@@ -81,8 +69,8 @@ export default function Dashboard() {
                             </ul>
                         </div>
                     </div>
-                </>
+                </div>
             )}
-        </article>
+        </section>
     );
 };

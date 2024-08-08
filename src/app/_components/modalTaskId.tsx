@@ -94,7 +94,7 @@ export const ModalTaskId = ({ show, task, onClose, folders }: ModalTaskIdProps) 
 
     return (
         <article className="fixed inset-0 flex items-center justify-center">
-            <div className="bg-white p-6 w-[450px] rounded-md shadow-xl border border-border">
+            <div className="bg-white p-6 lg:w-[450px] w-[350px] rounded-md shadow-xl border border-border">
                 <h1 className="text-lg mb-3">Vizualize e Edite</h1>
                 {isEditing ? (
                     <>
@@ -163,7 +163,7 @@ export const ModalTaskId = ({ show, task, onClose, folders }: ModalTaskIdProps) 
                     </>
                 ) : (
                     <>
-                        <h2 className="text-base mb-4 border border-gray-300 p-2 rounded-md">Nome: {task.nome}</h2>
+                        <h2 className="text-base mb-4 border border-gray-300 p-2 rounded-md overflow-hidden">Nome: {task.nome}</h2>
                         <div className="border border-gray-300 rounded-md p-2 mb-4">
                             <RenderHTML content={task.text} />
                         </div>

@@ -64,12 +64,56 @@ export default function GerenciamentoEstoque() {
     if (loading) return <LoadingSpinner />
 
     return (
-        <section className="h-[650px] flex flex-col z-30">
-            <div className="flex justify-between items-center border-b pl-12 lg:pl-0">
-                <h1 className="lg:text-lg m-4 md:text-2xl">Gerenciamento Estoque</h1>
+        <section>
+            <div className="flex items-center m-auto lg:justify-between justify-center py-4 pl-4 border-b border-border">
+                <h1 className="lg:text-2xl m-4 md:text-2xl text-base pl-4">Gerenciar Estoque</h1>
                 <button
                     onClick={() => setIsModalOpen(true)}
-                    className="flex cursor-pointer border border-border w-20 lg:w-32 justify-center text-sm lg:text-base md:text-base text-nowrap px-12 py-1 rounded-md bg-slate-200 text-black lg:mr-20 mr-8">
+                    className="flex w-20 cursor-pointer lg:border border-border text-nowrap text-transparent lg:px-12 lg:py-1 lg:w-32 justify-center text-sm lg:text-base md:text-base rounded-md lg:bg-slate-200 lg:text-gray-600 lg:mr-5 mr-8">
+                    Criar Tarefa
+                    <Image
+                        src="/icon/plus.svg"
+                        alt="Icone criar pasta"
+                        width={40}
+                        height={40}
+                        className="lg:hidden flex"
+                    />
+                </button>
+            </div>
+            <div className="mt-4 w-80 lg:w-full flex-wrap gap-4 mb-12 lg:mb-4 justify-center h-[500px] lg:h-[530px] overflow-y-scroll items-center  m-auto flex">
+                {folders?.map((folder) => (
+                    <div className="relative h-fit cursor-pointer" key={folder.id}>
+                        <Link href={`/dashboard/gerenciamento_estoque/${folder.id}`}>
+                            <div className="flex lg:w-40 lg:h-40 w-32 h-32 text-center items-center justify-center border-border border rounded-2xl shadow-md cursor-pointer hover:scale-110 transition .3s ease-in">
+                                <p>{folder.nome}</p>
+                                <span className="absolute w-8 h-8 rounded-full border-2 bottom-1 right-2 bg-white flex items-center justify-center text-sm text-gray-700">
+                                    {folder._count.Tarefa}
+                                </span>
+                            </div>
+                        </Link>
+                        <div className="absolute bottom-4 left-4 cursor-pointer" onClick={() => handleDelete(folder.id)}>
+                            <Image
+                                src="/icon/trash.svg"
+                                alt="Icone Deletar tarefa"
+                                width={20}
+                                height={20}
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+}
+
+/**
+ * 
+ *  <section className="h-[650px] flex flex-col">
+            <div className="flex justify-between items-center border-b pl-zz lg:pl-0">
+                <h1 className="lg:text-lg m-4 md:text-2xl text-base w-44">Gerenciamento Estoque</h1>
+                <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="flex cursor-pointer lg:border border-border w-0 text-transparent lg:w-32 justify-center text-sm lg:text-base md:text-base text-nowrap rounded-md lg:bg-slate-200 text-black lg:mr-20 mr-8">
                     Criar Pasta
                 </button>
             </div>
@@ -101,5 +145,6 @@ export default function GerenciamentoEstoque() {
             )}
             <Modal show={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handleCreateFolder} />
         </section>
-    );
-}
+ * 
+ * 
+ */

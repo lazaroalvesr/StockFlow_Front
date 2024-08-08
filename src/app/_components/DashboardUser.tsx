@@ -23,11 +23,11 @@ export const DashboardUser = () => {
     }
 
     return (
-        <aside className={`lg:w-[378px] h-full lg:h-auto lg:static absolute`}>
-            <div className={`lg:h-auto ${ativo ? "bg-[#f5f7f9] z-30 h-full absolute w-72 top-0 border-r border-gray-300" : "h-0 overflow-hidden w-auto"}`}>
-                <button onClick={toggle} className="lg:hidden absolute right-0 top-8 w-3">
+        <aside className={`lg:w-[378px] h-full w-0 lg:h-auto lg:static `}>
+            <div className={`lg:h-auto ${ativo ? "bg-[#f5f7f9]  h-full absolute top-0 border-r border-gray-300 z-20 w-" : "h-0 overflow-hidden "}`}>
+                <button onClick={toggle} className="lg:hidden absolute right-0 top-8 w-12">
                     {ativo ? (
-                        <div className="-ml-9">
+                        <div className="ml-0">
                             <Image
                                 src="/icon/x.svg"
                                 alt="fechar menu"
@@ -35,16 +35,7 @@ export const DashboardUser = () => {
                                 height={28}
                             />
                         </div>
-                    ) : (
-                        <div className="-ml-56 mt-2">
-                            <Image
-                                src="/icon/menu.svg"
-                                alt="abrir menu"
-                                width={28}
-                                height={28}
-                            />
-                        </div>
-                    )}
+                    ) : ""}
                 </button>
                 <div className="flex flex-col my-6 mx-4">
                     <div className="flex items-center gap-4 border-b pb-4">
@@ -105,6 +96,16 @@ export const DashboardUser = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="absolute left-8 top-12 lg:hidden" onClick={toggle}>
+                <Image
+                    src="/icon/menu.svg"
+                    alt="abrir menu"
+                    width={28}
+                    height={28}
+                />
+            </div>
+
         </aside>
     );
 };

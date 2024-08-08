@@ -15,7 +15,7 @@ export const Modal = ({ show, onClose, onSubmit }: { show: boolean, onClose: () 
     };
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="bg-black fixed flex items-center justify-center inset-0 bg-opacity-15 backdrop-blur-sm">
             <div className="bg-white p-6 rounded-md shadow-xl border border-border">
                 <h2 className="text-xl mb-4">Criar Nova Pasta</h2>
                 <form onSubmit={handleSubmit}>

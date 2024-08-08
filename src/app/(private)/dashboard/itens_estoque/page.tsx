@@ -8,6 +8,7 @@ import useFetch from "@/app/lib/hook/useFetch";
 import { FolderProps, LiItensDoEstoqueIdProps } from "@/app/lib/interface";
 import { LiTask } from "@/app/lib/LiTask";
 import LoadingSpinner from "@/app/lib/LoadingSpinner";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function ItensEstoque() {
@@ -105,27 +106,36 @@ export default function ItensEstoque() {
 
     return (
         <section>
-            <div className="flex justify-between items-center border-b pl-12 lg:pl-0 pt-1.5">
-                <h1 className="lg:text-2xl m-4 md:text-2xl text-lg">Itens do Estoque</h1>
+            <div className="flex justify-between items-center border-b pl-12 pt-4 lg:pl-0">
+                <h1 className="lg:text-2xl m-4 md:text-2xl text-base ">Itens do Estoque</h1>
                 <button
                     onClick={() => setIsModalOpen(true)}
-                    className="flex cursor-pointer border border-border text-nowrap px-12 py-1 w-20 lg:w-32 justify-center text-sm lg:text-base md:text-base rounded-md bg-slate-200 text-gray-600 lg:mr-5 mr-8">
+                    className="flex w-20 cursor-pointer lg:border border-border text-nowrap text-transparent lg:px-12 lg:py-1 lg:w-32 justify-center text-sm lg:text-base md:text-base rounded-md lg:bg-slate-200 lg:text-gray-600 lg:mr-5 mr-8">
                     Criar Tarefa
+                    <Image
+                        src="/icon/plus.svg"
+                        alt="Icone criar pasta"
+                        width={40}
+                        height={40}
+                        className="lg:hidden flex"
+                    />
                 </button>
             </div>
-            <div className="mt-6 flex m-4 flex-col w-80 lg:w-full md:w-full  gap-4 overflow-y-auto lg:h-[550px] h-[480px] pr-4">
-                {tasks.length ? '' : <p>Você não tem nenhum item criado</p>}
-                {tasks.map((item) => (
-                    <LiTask
-                        key={item.id}
-                        nome={item.nome}
-                        item={item}
-                        onclick={() => handleTaskClick(item)}
-                        handleDelete={() => HandleDelete(item.id)}
-                        pasta={item}
-                    />
-                    
-                ))}
+            <div className="flex  m-auto items-center justify-center w-full ml-2 lg:ml-10 lg:w-[1100px]">
+                <div className="mt-6 flex  flex-col items-center m-auto lg:w-full md:w-full gap-4 overflow-y-auto lg:h-[550px] h-[480px] pr-4">
+                    {tasks.length ? '' : <p>Você não tem nenhum item criado</p>}
+                    {tasks.map((item) => (
+                        <LiTask
+                            key={item.id}
+                            nome={item.nome}
+                            item={item}
+                            onclick={() => handleTaskClick(item)}
+                            handleDelete={() => HandleDelete(item.id)}
+                            pasta={item}
+                        />
+
+                    ))}
+                </div>
             </div>
             <ModalTask show={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handleTaskCreate} folders={folders || []} />
             <ModalTaskId show={isViewModalOpen} task={selectedTask} onClose={() => setIsViewModalOpen(false)} folders={folders || []} />
