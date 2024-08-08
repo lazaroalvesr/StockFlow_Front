@@ -65,7 +65,7 @@ export default function GerenciamentoEstoque() {
 
     return (
         <section>
-            <div className="flex items-center m-auto lg:justify-between justify-center py-4 pl-4 border-b border-border">
+            <div className="flex items-center m-auto md:justify-between lg:justify-between justify-center py-4 pl-4 border-b border-border">
                 <h1 className="lg:text-2xl m-4 md:text-2xl text-base pl-4">Gerenciar Estoque</h1>
                 <button
                     onClick={() => setIsModalOpen(true)}
@@ -80,27 +80,29 @@ export default function GerenciamentoEstoque() {
                     />
                 </button>
             </div>
-            <div className="mt-4 w-80 lg:w-full flex-wrap gap-4 mb-12 lg:mb-4 justify-center h-[500px] lg:h-[530px] overflow-y-scroll items-center  m-auto flex">
-                {folders?.map((folder) => (
-                    <div className="relative h-fit cursor-pointer" key={folder.id}>
-                        <Link href={`/dashboard/gerenciamento_estoque/${folder.id}`}>
-                            <div className="flex lg:w-40 lg:h-40 w-32 h-32 text-center items-center justify-center border-border border rounded-2xl shadow-md cursor-pointer hover:scale-110 transition .3s ease-in">
-                                <p>{folder.nome}</p>
-                                <span className="absolute w-8 h-8 rounded-full border-2 bottom-1 right-2 bg-white flex items-center justify-center text-sm text-gray-700">
-                                    {folder._count.Tarefa}
-                                </span>
+            <div className="w-80 lg:w-[1100px] lg:ml-6 md:w-[700px] md:m-auto md:pt-12  md:mb-4  pl-8 mt-4 h-[500px] mb-4 overflow-y-scroll">
+                <div className="flex gap-4 flex-wrap">
+                    {folders?.map((folder) => (
+                        <div className="relative h-fit cursor-pointer" key={folder.id}>
+                            <Link href={`/dashboard/gerenciamento_estoque/${folder.id}`}>
+                                <div className="flex lg:w-40 lg:h-40 w-32 h-32 text-center items-center justify-center border-border border rounded-2xl shadow-md cursor-pointer hover:scale-110 transition .3s ease-in">
+                                    <p>{folder.nome}</p>
+                                    <span className="absolute w-8 h-8 rounded-full border-2 bottom-1 right-2 bg-white flex items-center justify-center text-sm text-gray-700">
+                                        {folder._count.Tarefa}
+                                    </span>
+                                </div>
+                            </Link>
+                            <div className="absolute bottom-4 left-4 cursor-pointer" onClick={() => handleDelete(folder.id)}>
+                                <Image
+                                    src="/icon/trash.svg"
+                                    alt="Icone Deletar tarefa"
+                                    width={20}
+                                    height={20}
+                                />
                             </div>
-                        </Link>
-                        <div className="absolute bottom-4 left-4 cursor-pointer" onClick={() => handleDelete(folder.id)}>
-                            <Image
-                                src="/icon/trash.svg"
-                                alt="Icone Deletar tarefa"
-                                width={20}
-                                height={20}
-                            />
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
             <Modal show={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handleCreateFolder} />
         </section>
