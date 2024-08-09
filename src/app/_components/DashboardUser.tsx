@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useAuth } from "../lib/context/AuthContext"
 import { LiDashboardUser } from "../lib/ItensDashboardUser";
 import { useEffect, useState } from "react";
+import LogoutButton from "./Logout";
 
 export const DashboardUser = () => {
     const { user } = useAuth();
@@ -92,6 +93,9 @@ export const DashboardUser = () => {
                                 text="Minha Conta"
                                 onClick={handleItemClick}
                             />
+                            <li className="ml-0">
+                                <LogoutButton />
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -105,7 +109,6 @@ export const DashboardUser = () => {
                     height={28}
                 />
             </div>
-
         </aside>
     );
 };
