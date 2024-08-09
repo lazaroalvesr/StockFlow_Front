@@ -165,3 +165,10 @@ export interface UserProps {
     nome: string
     email: string
 }
+
+export interface DivItemProps{
+    src: string
+    alt: string
+    titulo: string
+    text: string
+}

@@ -12,6 +12,7 @@ export const Header = () => {
     const [ativo, setAtivo] = useState(false)
     const [isClient, setIsClient] = useState(false)
 
+    console.log(user?.nome)
     function toggle() {
         setAtivo(!ativo)
     }
@@ -23,7 +24,7 @@ export const Header = () => {
     return (
         <header className="shadow-md ">
             <div className="lg:max-w-6xl m-auto h-20 justify-between items-center flex">
-                <div className="flex lg:relative items-center lg:gap-20 gap-0 md:gap-8">
+                <div className="flex lg:relative items-center lg:gap-20 gap-0 md:gap-8 justify-center lg:m-auto md:m-auto">
                     <div className="flex items-center pl-4 lg:pl-0">
                         <Image
                             src="/icon/Icone.svg"
@@ -46,7 +47,7 @@ export const Header = () => {
                         <div className="gap-4 flex lg:flex-row md:flex-row flex-col lg:ml-[350px] md:ml-12">
                             {isClient ? (
                                 user ? (
-                                    <User user={user?.nome} />
+                                    <User user={user.nome} />
                                 ) : (
                                     <div className="gap-4 flex lg:flex-row flex-col items-center">
                                         <Button href="/auth/login" text="Login" />

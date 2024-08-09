@@ -38,7 +38,7 @@ export default function Dashboard() {
                                 Ver Mais
                             </Link>
                         </div>
-                        <div className="lg:mt-0 mt-6 m-auto flex gap-2 lg:w-full lg:h-44 h-[270px] w-72 md:w-full overflow-hidden flex-wrap justify-center items-center">
+                        <div className="lg:mt-0 mt-6 m-auto flex gap-2 lg:w-full lg:h-44 h-[270px] w-72 md:w-full overflow-hidden flex-wrap justify-center lg:justify-normal items-center">
                             {folders?.slice(0, 8).map((item) => (
                                 <Link key={item.id} className="flex hover:scale-105 transition ease-in" href={`/dashboard/gerenciamento_estoque/${item.id}`}>
                                     <div className="w-[130px] h-[130px] rounded-md text-center flex justify-center items-center m-auto bg-gray-200">

@@ -46,7 +46,7 @@ export const DashboardUser = () => {
                             height={28}
                         />
                         <div className="flex flex-col">
-                            <p className="font-bold">{isClient ? user?.nome : ""}</p>
+                            <p className="font-bold lg:w-44 w-32 truncate">{isClient ? user?.nome : ""}</p>
                             <span className="text-xs">{isClient ? user?.email : ""}</span>
                         </div>
                     </div>
@@ -97,7 +97,7 @@ export const DashboardUser = () => {
                 </div>
             </div>
 
-            <div className="absolute left-8 top-12 lg:hidden" onClick={toggle}>
+            <div className="absolute left-8 top-10 lg:hidden" onClick={toggle}>
                 <Image
                     src="/icon/menu.svg"
                     alt="abrir menu"

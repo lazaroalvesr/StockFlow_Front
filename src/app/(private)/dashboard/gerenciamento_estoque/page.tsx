@@ -65,7 +65,7 @@ export default function GerenciamentoEstoque() {
 
     return (
         <section>
-            <div className="flex items-center m-auto md:justify-between lg:justify-between justify-center py-4 pl-4 border-b border-border">
+            <div className="flex items-center m-auto md:justify-between lg:justify-between justify-center py-2 pl-4 border-b border-border">
                 <h1 className="lg:text-2xl m-4 md:text-2xl text-base pl-4">Gerenciar Estoque</h1>
                 <button
                     onClick={() => setIsModalOpen(true)}

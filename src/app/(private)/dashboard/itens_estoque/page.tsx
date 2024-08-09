@@ -106,7 +106,7 @@ export default function ItensEstoque() {
 
     return (
         <section>
-            <div className="flex justify-between items-center border-b pl-12 pt-4 lg:pl-0">
+            <div className="flex justify-between items-center border-b pl-12 pt-3 lg:pl-0">
                 <h1 className="lg:text-2xl m-4 md:text-2xl text-base ">Itens do Estoque</h1>
                 <button
                     onClick={() => setIsModalOpen(true)}
@@ -121,9 +121,9 @@ export default function ItensEstoque() {
                     />
                 </button>
             </div>
-            <div className="flex lg:ml-10 md:w-[700px] md:m-auto lg:w-[1100px] lg:h-[550px] h-[480px] overflow-y-scroll mb-4">
+            <div className="lg:mb-4 flex lg:ml-10 md:w-[700px] md:m-auto lg:w-[1100px] lg:h-[560px] h-[480px] overflow-y-scroll mb-4">
                 <div className="w-full mt-3 flex-col flex h-0 gap-4">
-                    {tasks.length ? '' : <p>Você não tem nenhum item criado</p>}
+                    {tasks.length ? '' : <p className="text-center">Você não tem nenhum item criado</p>}
                     {tasks.map((item) => (
                         <LiTask
                             key={item.id}
@@ -138,7 +138,7 @@ export default function ItensEstoque() {
                 </div>
             </div>
             <ModalTask show={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handleTaskCreate} folders={folders || []} />
-            <ModalTaskId show={isViewModalOpen} task={selectedTask} onClose={() => setIsViewModalOpen(false)} folders={folders || []} />
+            <ModalTaskId show={isViewModalOpen} task={selectedTask} onClose={() => setIsViewModalOpen(false)} folders={folders || []}/>
         </section >
     )
 }

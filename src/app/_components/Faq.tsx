@@ -1,7 +1,8 @@
 "use client"
 
-import Image from "next/image"
 import { useState } from "react"
+import Suporte from "../(private)/dashboard/suporte/page"
+import Image from "next/image"
 
 interface Faq {
     id: number
@@ -19,7 +20,8 @@ const faqs: Faq[] = [
     { id: 7, title: "Como crio um item no meu estoque?", text: "Para criar um item, é obrigatório ter uma pasta. Primeiro, crie uma pasta e depois adicione o item dentro dela." },
 ]
 
-export default function Suporte() {
+export const Faq = () => {
+
     const [openFaqs, setOpenFaqs] = useState<{ [key: string]: boolean }>({})
 
     function toggleFaq(id: number) {
@@ -28,32 +30,29 @@ export default function Suporte() {
             [id]: !prevState[id]
         }))
     }
+
     return (
-        <section>
-            <div className="flex border-b pt-6 pb-4 lg:py-5 pl-12 lg:pl-6">
-                <h1 className="lg:text-2xl md:text-2xl text-base ">Suporte</h1>
-            </div>
-            <div className="pt-4 lg:px-8 px-4 pb-4">
-                <ul className="gap-4 flex flex-col">
-                    {faqs.map((item) => (
-                        <li key={item.id} className="w-full flex-col py-2 bg-white shadow-md border flex justify-between px-4  border-border rounded-md cursor-pointer" onClick={() => toggleFaq(item.id)}>
-                            <span className="w-full font-bold text-sm lg:text-base flex justify-between pb-2 items-center">
-                                {item.title}
-                                {openFaqs[item.id] ? (
-                                    <Image src="/icon/chevron-up.svg" alt="Icone seta para cima" width={30} height={30} />
-                                ) : (
-                                    <Image src="/icon/chevron-down.svg" alt="Icone seta para baixo" width={30} height={30} />
-                                )}
-                            </span>
+        <div className="lg:mt-32 mt-20 m-auto lg:max-w-6xl justify-center items-center">
+            <p className="text-black font-bold text-center lg:text-3xl text-2xl">Perguntas Frequentes</p>
+            <div className="flex gap-4 flex-col mt-12 mx-4 lg:mx-0  ">
+                {faqs.map((item) => (
+                    <li key={item.id} className="w-full flex-col py-2 bg-white shadow-md border flex justify-between px-4  border-border rounded-md cursor-pointer" onClick={() => toggleFaq(item.id)}>
+                        <span className="w-full font-bold text-sm lg:text-base flex justify-between pb-2 items-center">
+                            {item.title}
                             {openFaqs[item.id] ? (
-                                <div className="pt-2 border-t text-sm border-border">
-                                    {item.text}
-                                </div>
-                            ) : ""}
-                        </li>
-                    ))}
-                </ul>
+                                <Image src="/icon/chevron-up.svg" alt="Icone seta para cima" width={30} height={30} />
+                            ) : (
+                                <Image src="/icon/chevron-down.svg" alt="Icone seta para baixo" width={30} height={30} />
+                            )}
+                        </span>
+                        {openFaqs[item.id] ? (
+                            <div className="pt-2 border-t text-sm border-border">
+                                {item.text}
+                            </div>
+                        ) : ""}
+                    </li>
+                ))}
             </div>
-        </section>
+        </div>
     )
 }

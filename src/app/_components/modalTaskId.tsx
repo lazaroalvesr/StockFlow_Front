@@ -30,8 +30,8 @@ export const ModalTaskId = ({ show, task, onClose, folders }: ModalTaskIdProps) 
 
     const editor = useEditor({
         extensions: [StarterKit],
-        editorProps:{
-            attributes:{
+        editorProps: {
+            attributes: {
                 class: "editor-content"
             }
         },
@@ -52,7 +52,7 @@ export const ModalTaskId = ({ show, task, onClose, folders }: ModalTaskIdProps) 
 
     const handleEditClick = () => {
         setIsEditing(true);
-        setEditData({ nome: task.nome, text: task.text, dataFabricacao: task.dataFabricacao,  dataValidade: task.dataValidade, perecivel: task.perecivel, pastaId: '' });
+        setEditData({ nome: task.nome, text: task.text, dataFabricacao: task.dataFabricacao, dataValidade: task.dataValidade, perecivel: task.perecivel, pastaId: '' });
         editor?.commands.setContent(task.text);
     };
 
@@ -82,7 +82,7 @@ export const ModalTaskId = ({ show, task, onClose, folders }: ModalTaskIdProps) 
             console.log(e);
         }
     };
-    
+
     const handleChangeSelect = (e: React.ChangeEvent<any>) => {
         const { name, value, type, checked } = e.target;
         setEditData((prevTask) => ({
@@ -91,6 +91,30 @@ export const ModalTaskId = ({ show, task, onClose, folders }: ModalTaskIdProps) 
         }));
     };
 
+    const HandleDelete = async (id: string) => {
+        try {
+            const response = await fetch(`${BaseURL}task/${id}`, {
+                next:{
+                    revalidate:1,
+                },
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
+                },
+
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.statusText}`);
+            }
+
+            onClose();
+
+        } catch (error) {
+            console.error('Erro ao apagar o item do estoque:', error);
+        }
+    };
 
     return (
         <article className="bg-black fixed flex items-center justify-center inset-0 bg-opacity-15 backdrop-blur-sm">
@@ -185,6 +209,13 @@ export const ModalTaskId = ({ show, task, onClose, folders }: ModalTaskIdProps) 
                             className="bg-gray-200 px-4 py-2 rounded"
                         >
                             Fechar
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => HandleDelete(task.id)}
+                            className="bg-red-500 ml-4 text-white px-4 py-2 rounded lg:hidden"
+                        >
+                            Deletar
                         </button>
                     </>
                 )}

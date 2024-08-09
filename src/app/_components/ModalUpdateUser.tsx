@@ -1,0 +1,45 @@
+'use client'
+
+import { useState } from "react";
+
+export const ModalUpdateUser = ({ show, onClose, onSubmit }: { show: boolean, onClose: () => void, onSubmit: (nome: string, email: string) => void }) => {
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+
+    if (!show) return null;
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        onSubmit(nome, email);
+        setNome("");
+        onClose();
+    };
+
+    return (
+        <div className="bg-black fixed flex items-center justify-center inset-0 bg-opacity-15 backdrop-blur-sm">
+            <div className="bg-white p-6 w-72 lg:w-96 rounded-md shadow-xl border border-border">
+                <h2 className="text-xl mb-4">Editar usuario</h2>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Nome"
+                        value={nome}
+                        onChange={(e) => setNome(e.target.value)}
+                        className="border p-2 mb-4 w-full"
+                    />
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="border p-2 mb-4 w-full"
+                    />
+                    <div className="flex justify-end gap-2">
+                        <button type="button" onClick={onClose} className="bg-gray-200 px-4 py-2 rounded">Cancelar</button>
+                        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Criar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    );
+};
