@@ -33,3 +33,5 @@ StockFlow foi criado para facilitar o gerenciamento de estoque, proporcionando u
 - **[React.js](https://reactjs.org/)** - Biblioteca JavaScript para construção de interfaces de usuário.
 - **[TypeScript](https://www.typescriptlang.org/)** - Superconjunto de JavaScript que adiciona tipagem estática ao código.
 - **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utilitário que permite estilização rápida e eficiente.
+
+- Back-End: (https://github.com/lazaroalvesr/API_stockFlow)
