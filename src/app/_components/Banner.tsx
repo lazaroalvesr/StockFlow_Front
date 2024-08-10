@@ -10,7 +10,7 @@ export const Banner = () => {
                     <div className="flex lg:flex-row md:flex-row flex-col gap-y-4 lg:gap-4 mt-12 items-center justify-center">
                         <div className="flex flex-col items-center">
                             <Image
-                                src="/icon/garage.svg"
+                                src="/icon/Garage.svg"
                                 alt="Icone"
                                 width={28}
                                 height={28}

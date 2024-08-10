@@ -25,13 +25,13 @@ export const TutorialUso = () => {
                         text="Monitore de perto as entradas e saídas do estoque com StockFlow, evitando erros de planejamento e gastos desnecessários. O StockFlow é seu maior aliado na gestão financeira do seu negócio."
                     />
                 </div>
-                <div className="w-full lg:flex hidden md:flex ">
+                <div className="w-full lg:flex hidden md:flex h-full lg:ml-48 md:ml-0">
                     <Image
                         src="/img/mac.png"
                         alt="Foto Notebook"
-                        width={550}
-                        height={550}
-                        className="md:w-[360px] md:h-96 object-cover h-full lg:w-full"
+                        width={200}
+                        height={200}
+                        className="md:w-[360px] md:h-full  lg:h-full lg:w-[420px]"
                     />
                 </div>
             </div>
