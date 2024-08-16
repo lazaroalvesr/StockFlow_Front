@@ -43,17 +43,17 @@ export default function LoginPage() {
                 throw new Error(data.message || 'Erro desconhecido');
             }
 
-            setInterval(() => {
-                if (response.ok) {
-                    router.push("/dashboard")
-                }
-            }, (1000));
-
             Cookies.set('access_token', data.acess_token, {
                 secure: true,
                 sameSite: 'Strict',
                 expires: 7,
             });
+
+            setInterval(() => {
+                if (response.ok) {
+                    router.push("/dashboard")
+                }
+            }, (1000));
 
             setSuccess("Login realizado com sucesso");
         } catch (e) {

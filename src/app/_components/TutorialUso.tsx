@@ -27,11 +27,11 @@ export const TutorialUso = () => {
                 </div>
                 <div className="w-full lg:flex hidden md:flex h-full lg:ml-48 md:ml-0">
                     <Image
-                        src="/img/mac.png"
+                        src="/img/Macbook-Air-stock-flow-front.vercel.app.png"
                         alt="Foto Notebook"
-                        width={200}
+                        width={600}
                         height={200}
-                        className="md:w-[360px] md:h-full  lg:h-full lg:w-[420px]"
+                        className="md:w-[360px] md:h-full ml-12  lg:h-full lg:w-[420px] mt-20"
                     />
                 </div>
             </div>

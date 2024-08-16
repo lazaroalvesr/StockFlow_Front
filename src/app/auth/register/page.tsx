@@ -41,18 +41,12 @@ export default function RegisterPage() {
                 throw new Error(data.message || 'Erro desconhecido');
             }
 
-
+            
             setInterval(() => {
                 if (response.ok) {
                     router.push("/auth/login")
                 }
             }, (1000));
-
-            Cookies.set('access_token', data.acess_token, {
-                secure: true,
-                sameSite: 'Strict',
-                expires: 7,
-            });
 
             setSucess("Cadastro realizado com sucesso")
         } catch (e) {
